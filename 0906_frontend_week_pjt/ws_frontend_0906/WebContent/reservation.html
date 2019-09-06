@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8" />
+  	<title>영화 예매</title>
+  	<style type="text/css">
+  	#poster{
+  		width : 500px;
+  	}
+  	
+  	
+  	#morningPrice{
+  		display : none;
+  	}
+  	
+  	
+  	
+  	</style>
+  	<script type='text/javascript' src='js/jquery-3.3.1.js'></script>
+  	<script type="text/javascript">
+  	
+  	
+    $(document).ready(function () {
+    	let type = -1;
+    	let flag = -1;
+    	let prices =0;
+    	let total =0;
+    	let before =0;
+        $('#morning').click(function () {
+        	type=0;
+          // setter
+          // 선택한 부분을 세팅할 수 있다.
+        	$('#morningPrice').css('display', 'inline-block');
+          	$('#pricebox').css('display', 'none');
+        	$('#info').css('display', 'none');
+        	
+        	$('input[name="options"]').prop('checked'. false);
+          	$('#price').val(0);
+        });
+        $('.time').click(function () {
+        	type=1;
+            // setter
+            // 선택한 부분을 세팅할 수 있다.
+        	$('#morningPrice').css('display', 'none');
+          	$('#pricebox').css('display', 'inline-block');
+            
+        	$('#info').css('display', 'none');
+          	$('#price').val(0);
+          });
+        
+        $('#person').click(function () {
+        	var current= $(this).val();
+        	flag=0;
+        	var mon = (type==0) ? 5000 : 9000;
+        	if(current<before){
+        		mon*=-1;
+        	}
+        	if(current==before)
+        		mon=0;
+        	if(total<0){
+        		total=0;
+        	}
+        	total = total+mon;
+          	$('#price').val(total);
+          	before= current;
+          });
+        
+        
+        $('input[name="options"]').change(function() {
+            var checked = $(this).prop('checked');  // checked 상태 (true, false)
+            var $label = $(this).next();            // find a label element
+         
+            if(type==-1 || flag==-1){
+            	$('#info').css('display', 'inline-block');
+            }
+            else{
+            	$('#info').css('display', 'none');
+	            if(checked){
+	              	$('#optionArea').css('display', 'block');
+	              	var state = $('#popcorn').prop('checked');
+	              	if(!checked){
+	              		prices = prices - 5000;
+	              		$('#popcorn').prop('checked', false);
+	                  	$('#price').val(prices);
+	              	}
+	            }
+	            else{
+	              	$('#optionArea').css('display', 'none');
+	              	$('#cola').prop('checked', false);
+
+	            }
+            }
+        });
+        
+        
+        
+        $('#popcorn').change(function() {
+            var checked = $(this).prop('checked');  // checked 상태 (true, false)
+            var $label = $(this).next();            // find a label element
+         
+            
+            if(checked){
+            	total += 5000;
+              	$('#price').val(total);
+            }
+            else{
+            	total -= 5000;
+              	$('#price').val(total);
+            }
+        });
+        
+        
+        $('#cola').change(function() {
+            var checked = $(this).prop('checked');  // checked 상태 (true, false)
+            var $label = $(this).next();            // find a label element
+         
+            if(checked){
+            	total += 2000;
+              	$('#price').val(total);
+            }
+            else{
+            	total -= 2000;
+              	$('#price').val(total);
+            }
+        });
+        
+      });
+    
+    
+  	</script>
+  	
+  	
+  	
+	<style type="text/css">
+	
+	.textbox{
+		background-color:transparent;
+		border: 0 solid black;
+		text-align: left;
+		font-size : 15px;
+		margin-left : 10px;
+	}
+	
+	#optionArea{
+		display : none;
+	}
+	
+	#info{
+		color : red;
+		display : none;
+	}
+	
+	</style>
+
+</head>
+
+<body>
+    <header>
+	    <hgroup>
+	      <h1 align="center">영화 예매</h1>    	
+	      <h2 align="center">위대한 쇼맨(The greatest show)</h2>    	
+	    </hgroup>
+    </header>
+
+	<article id="reservation">
+		<section align="center">
+			<img id="poster" alt="위대한쇼맨poster"  src="./img/The_greatest_show_mainPoster.jpg">
+		</section>
+		<section>
+			<form>
+				<fieldset id="wrapperFieldset">
+					<legend id="wrapperLegend">예매정보 입력</legend>
+					<label>상영관</label>
+					<select>
+						<option>CGV</option>
+						<option>롯데시네마</option>
+						<option>메가박스</option>
+						<option>프리머스</option>
+						<option>다른극장</option>
+					</select>
+					<br/>
+					<label>날 &nbsp;짜</label><input type="date"/><br/>
+					<fieldset class="innerFiledSet" >
+						<legend>시간</legend>
+						<input type="radio" id="morning" name="time" value="08:30"/><label>08:30</label>
+						<input type="radio" class="time" name="time" value="11:00"/><label>11:00</label>
+						<input type="radio" class="time" name="time" value="14:20"/><label>14:20</label>
+						<input type="radio" class="time" name="time" value="17:25"/><label>17:25</label>
+						<input type="radio" class="time" name="time" value="20:10"/><label>20:10</label>
+						<input type="radio" class="time" name="time" value="23:05"/><label>23:05</label>
+					</fieldset>
+						<p/>
+					<label>요&nbsp;금</label><span id="priceLable">
+						<label id='morningPrice'><span style="text-decoration: line-through">W9,000</span>&nbsp;&nbsp;<span style="text-decoration: underline">W5,000</span></label><label id='pricebox'>W9,000</label>
+					</span><p/>
+					<label>인&nbsp;원</label><input type="number" required="required"  min="0"  id='person'/><p/>
+					<label>금&nbsp;액</label><input type="number" readonly="readonly"  id='price' value="0"/>
+						<legend>옵션 <input type="checkbox" name="options" id="options"/><label id='info'>&nbsp;시간과 인원을 선택해주세요!</label></legend>
+					<fieldset class="innerFiledSet" id="optionArea">
+						<input type="checkbox" id="popcorn" name="option"  value="5000"/><label>팝콘 W5,000</label>
+						<input type="checkbox" id="cola" name="option" value="2000"/><label>음료 W2,000</label>
+					</fieldset>
+				</fieldset>
+				<fieldset id="buttons">
+					<input type="reset" id="reset" value="취소">
+					<input type="submit" id="submit" value="예매">
+				</fieldset>			
+			</form>
+		</section>
+	</article>
+</body>
+</html>

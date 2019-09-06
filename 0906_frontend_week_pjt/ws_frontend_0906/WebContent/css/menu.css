@@ -1,0 +1,52 @@
+nav {<!--
+	border: 1px solid #000;
+	-->
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul>li {
+	width: 200px;
+	text-align: center;
+	float: left;
+	display: block;
+}
+
+ul:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+ul  li  a {
+	padding: 5px 15px;
+	text-decoration: none;
+	background: #424242;
+	color: #fff;
+	display: block;
+}
+
+ul  li  a:hover {
+	background: #3b3b3b;
+}
+
+ul  ul {
+	display: none;
+}
+
+ul li:hover ul {
+	display: block;
+	position: absolute;
+}
+
+li:hover li {
+	float: none;
+}
+
+.rssimg {
+	height: 15px;
+}
