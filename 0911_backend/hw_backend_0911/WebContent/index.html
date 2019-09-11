@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+body{
+	width : 400px;
+	margin : 0 auto;
+}
+
+#line{
+	width : 300px;
+	height : 150px;
+	border : 2px solid blue;
+}
+</style>
+
+</head>
+<body>
+	<form action="Login.do" method="post">
+		<div id="line">
+		<h3>로그인하여 주세요</h3>
+		<table style="margin : 10px auto;">
+			<tr>
+				<td>ID :</td>
+				<td><input type="text" name="userid"></td>
+			</tr>		
+			
+			<tr>
+				<td>PASSWORD :</td>
+				<td><input type="password" name="passwd"></td>
+			</tr>		
+			
+			<tr>
+				<td colspan="2"><input type="submit" value="로그인"><input type="reset" value="취소"></td>
+			</tr>		
+		
+		</table>
+		</div>
+	</form>
+</body>
+</html>

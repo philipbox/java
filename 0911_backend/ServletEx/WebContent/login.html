@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+
+body{
+	width : 200px;
+	margin : 0 auto;
+}
+
+#line{
+	border : 2px dotted blue;
+}
+</style>
+
+</head>
+<body>
+	<h1>Login 화면</h1>
+	<form action="login.do" method="post">
+		<table id="line">
+			<tr>
+				<td>ID :</td>
+				<td><input type="text" name="userid"></td>
+			</tr>		
+			
+			<tr>
+				<td>PW :</td>
+				<td><input type="password" name="passwd"></td>
+			</tr>		
+			
+			<tr>
+				<td colspan="2"><input type="submit" value="로그인"><input type="reset" value="취소"></td>
+			</tr>		
+		
+		</table>
+	</form>
+</body>
+</html>

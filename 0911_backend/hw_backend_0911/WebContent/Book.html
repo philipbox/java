@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+
+
+
+table{
+	border : 1px solid #BDBDBD;
+}
+td{
+	border : 1px solid #BDBDBD;
+	height : 30px;
+}
+#container{
+	margin : auto;
+	width : 600px;
+	height : 600px;
+	border : 1px solid black;
+
+}
+
+textarea{
+	width : 500px;
+	height : 100px;
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+	<div id="container">
+		
+		<div id="title">
+			<h2>도서 등록 화면 </h2>
+		</div>
+	
+		<div id="contents">
+
+			<table>
+			
+				<tr>
+					<td style="width : 100px;"> <label style="color : red;">&nbsp;*</label> 도서번호</td>
+					<td colspan="5"><input type="text">-<input type="text">-<input type="text"></td>
+				
+				</tr>
+			
+				<tr>
+					<td>도서제목</td>
+					<td colspan="4"><input type="text" style="width : 500px;"></td>
+				</tr>
+				
+				<tr>
+					<td>도서종류</td>
+					<td>
+						<select name="category">
+						  <option value="프로그래밍">프로그래밍</option>
+						  <option value="소설">소설</option>
+						  <option value="잡지">잡지</option>
+						</select>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td>출판국가</td>
+					<td>
+					<input type="radio" name="chk_info" value="국내도서">국내도서
+					<input type="radio" name="chk_info" value="외국도서">외국도서
+					</td>
+				</tr>
+				
+				<tr>
+					<td>출판일</td>
+					<td colspan="4" ><input type="text" style="width : 200px;"></td>
+				</tr>
+				
+				<tr>
+					<td>출판사</td>
+					<td>
+						<select name="category">
+						  <option value="싸피">싸피출판사</option>
+						  <option value="한빛">한빛출판사</option>
+						  <option value="사이버">사이버출판사</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>저&nbsp;&nbsp;&nbsp;자</td>
+					<td colspan="4" ><input type="text" style="width : 150px;"></td>
+				</tr>
+				
+				<tr>
+					<td>도서가격</td>
+					<td colspan="4" ><input type="text" style="width : 150px;"></td>
+				</tr>
+				
+				<tr>
+					<td>요약내용</td>
+					<td colspan="4" ><textarea></textarea></td>
+				</tr>
+				
+				
+			</table>		
+		
+		</div>
+	
+	
+	</div>
+
+
+
+</body>
+</html>
