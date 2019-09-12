@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+
+function check_val(){
+
+	loginForm = document.loginForm;
+	if(loginForm.userid.value == ""){
+		alert("아이디를 입력해주세요.");
+	}
+	else if(loginForm.passwd.value ==""){
+		alert("비밀번호를 입력해주세요.");
+	}
+	else{
+		loginForm.submit();
+	}
+	
+}
+
+</script>
 
 <style type="text/css">
 
@@ -20,9 +39,9 @@ body{
 
 </head>
 <body>
-	<form action="Login.do" method="post">
+	<form action="login.do" method="post" name="loginForm">
 		<div id="line">
-		<h3>�α����Ͽ� �ּ���</h3>
+		<h3>로그인하여 주세요</h3>
 		<table style="margin : 10px auto;">
 			<tr>
 				<td>ID :</td>
@@ -35,7 +54,7 @@ body{
 			</tr>		
 			
 			<tr>
-				<td colspan="2"><input type="submit" value="�α���"><input type="reset" value="���"></td>
+				<td colspan="2"><input type="button" value="로그인" onclick="check_val()"><input type="reset" value="취소"></td>
 			</tr>		
 		
 		</table>

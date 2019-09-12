@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+
+function check_book(){
+	
+	bookForm = document.bookForm;
+	if(bookForm.num1.value=="" || bookForm.num2.value=="" || bookForm.num3.value== ""){
+		alert("ë„ì„œë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");	
+	}
+	else if(bookForm.title.value == ""){
+		alert("ë„ì„œì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+	}
+	else if(bookForm.book_cate.value == "NONE"){
+		alert("ë„ì„œì¢…ë¥˜ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”.");		
+	}
+	else if(bookForm.author.value == ""){
+		alert("ì €ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+	}
+	else{
+		bookForm.submit();
+	}
+	
+}
+
+
+</script>
+
+
 <style type="text/css">
-
-
-
 table{
 	border : 1px solid #BDBDBD;
 }
@@ -17,7 +42,7 @@ td{
 #container{
 	margin : auto;
 	width : 600px;
-	height : 600px;
+	height : 540px;
 	border : 1px solid black;
 
 }
@@ -27,6 +52,13 @@ textarea{
 	height : 100px;
 }
 
+#btnArea{
+	text-align : center;
+}
+
+.bookBtn{
+	width : 100px;
+}
 </style>
 
 
@@ -35,83 +67,81 @@ textarea{
 
 
 	<div id="container">
-		
 		<div id="title">
-			<h2>µµ¼­ µî·Ï È­¸é </h2>
+			<h2>ë„ì„œ ë“±ë¡ í™”ë©´ </h2>
 		</div>
 	
+		<form action="bookInfo.do" method="post" name="bookForm">
 		<div id="contents">
-
 			<table>
-			
 				<tr>
-					<td style="width : 100px;"> <label style="color : red;">&nbsp;*</label> µµ¼­¹øÈ£</td>
-					<td colspan="5"><input type="text">-<input type="text">-<input type="text"></td>
+					<td style="width : 100px;"><label style="color : red;">&nbsp;*</label> ë„ì„œë²ˆí˜¸</td>
+					<td colspan="5"><input type="text" name="num1">-<input type="text" name="num2">-<input type="text" name="num3"></td>
 				
 				</tr>
 			
 				<tr>
-					<td>µµ¼­Á¦¸ñ</td>
-					<td colspan="4"><input type="text" style="width : 500px;"></td>
+					<td><label style="color : red;">&nbsp;*</label> ë„ì„œì œëª©</td>
+					<td colspan="4"><input type="text" style="width : 500px;" name="title"></td>
 				</tr>
 				
 				<tr>
-					<td>µµ¼­Á¾·ù</td>
+					<td><label style="color : red;">&nbsp;*</label> ë„ì„œì¢…ë¥˜</td>
 					<td>
-						<select name="category">
-						  <option value="ÇÁ·Î±×·¡¹Ö">ÇÁ·Î±×·¡¹Ö</option>
-						  <option value="¼Ò¼³">¼Ò¼³</option>
-						  <option value="ÀâÁö">ÀâÁö</option>
+						<select name="book_cate">
+						  <option value="NONE">í•´ë‹¹ í•­ëª©ì„ ì„ íƒí•˜ì„¸ìš”</option>
+						  <option value="í”„ë¡œê·¸ë˜ë°">í”„ë¡œê·¸ë˜ë°</option>
+						  <option value="ì†Œì„¤">ì†Œì„¤</option>
+						  <option value="ì¡ì§€">ì¡ì§€</option>
 						</select>
 					</td>
 				</tr>
 				
 				
 				<tr>
-					<td>ÃâÆÇ±¹°¡</td>
+					<td><label>&nbsp;*</label> ì¶œíŒêµ­ê°€</td>
 					<td>
-					<input type="radio" name="chk_info" value="±¹³»µµ¼­">±¹³»µµ¼­
-					<input type="radio" name="chk_info" value="¿Ü±¹µµ¼­">¿Ü±¹µµ¼­
+					<input type="radio" name="chk_info" value="êµ­ë‚´ë„ì„œ">êµ­ë‚´ë„ì„œ
+					<input type="radio" name="chk_info" value="ì™¸êµ­ë„ì„œ">ì™¸êµ­ë„ì„œ
 					</td>
 				</tr>
 				
 				<tr>
-					<td>ÃâÆÇÀÏ</td>
-					<td colspan="4" ><input type="text" style="width : 200px;"></td>
+					<td><label>&nbsp;*</label> ì¶œíŒì¼</td>
+					<td colspan="4" ><input type="text" style="width : 200px;" name="date"></td>
 				</tr>
 				
 				<tr>
-					<td>ÃâÆÇ»ç</td>
+					<td><label>&nbsp;*</label> ì¶œíŒì‚¬</td>
 					<td>
-						<select name="category">
-						  <option value="½ÎÇÇ">½ÎÇÇÃâÆÇ»ç</option>
-						  <option value="ÇÑºû">ÇÑºûÃâÆÇ»ç</option>
-						  <option value="»çÀÌ¹ö">»çÀÌ¹öÃâÆÇ»ç</option>
+						<select name="publisher">
+						  <option value="ì‹¸í”¼">ì‹¸í”¼ì¶œíŒì‚¬</option>
+						  <option value="í•œë¹›">í•œë¹›ì¶œíŒì‚¬</option>
+						  <option value="ì‚¬ì´ë²„">ì‚¬ì´ë²„ì¶œíŒì‚¬</option>
 						</select>
 					</td>
 				</tr>
 				
 				<tr>
-					<td>Àú&nbsp;&nbsp;&nbsp;ÀÚ</td>
-					<td colspan="4" ><input type="text" style="width : 150px;"></td>
+					<td><label style="color : red;">&nbsp;*</label> ì €&nbsp;&nbsp;&nbsp;ì</td>
+					<td colspan="4" ><input type="text" style="width : 150px;" name="author"></td>
 				</tr>
 				
 				<tr>
-					<td>µµ¼­°¡°İ</td>
-					<td colspan="4" ><input type="text" style="width : 150px;"></td>
+					<td><label>&nbsp;*</label> ë„ì„œê°€ê²©</td>
+					<td colspan="4" ><input type="text" style="width : 150px;" name="price"></td>
 				</tr>
 				
 				<tr>
-					<td>¿ä¾à³»¿ë</td>
-					<td colspan="4" ><textarea></textarea></td>
+					<td><label>&nbsp;*</label> ìš”ì•½ë‚´ìš©</td>
+					<td colspan="4" ><textarea name="contents"></textarea></td>
 				</tr>
-				
-				
-			</table>		
-		
+			</table>
+			<div id="btnArea">	
+			<input class="bookBtn" type="button" value="ë„ì„œë“±ë¡" onclick="check_book()">&nbsp;&nbsp;<input class="bookBtn" type="reset" value="ì·¨ ì†Œ">
+			</div>
 		</div>
-	
-	
+		</form>
 	</div>
 
 
