@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function check_val(){
+
+	loginForm = document.loginForm;
+	if(loginForm.userid.value == ""){
+		alert("아이디를 입력해주세요.");
+	}
+	else if(loginForm.passwd.value ==""){
+		alert("비밀번호를 입력해주세요.");
+	}
+	else{
+		loginForm.submit();
+	}
+	
+}
+
+</script>
+
+<style type="text/css">
+
+body{
+	width : 400px;
+	margin : 0 auto;
+}
+
+#line{
+	width : 300px;
+	height : 150px;
+	border : 2px solid blue;
+}
+</style>
+
+</head>
+<body>
+	<form action="login.do" method="post" name="loginForm">
+		<div id="line">
+		<h3>로그인하여 주세요</h3>
+		<table style="margin : 10px auto;">
+			<tr>
+				<td>ID :</td>
+				<td><input type="text" name="userid"></td>
+			</tr>		
+			
+			<tr>
+				<td>PASSWORD :</td>
+				<td><input type="password" name="passwd"></td>
+			</tr>		
+			
+			<tr>
+				<td colspan="2"><input type="button" value="로그인" onclick="check_val()"><input type="reset" value="취소"></td>
+			</tr>		
+		
+		</table>
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+function check_book(){
+	
+	bookForm = document.bookForm;
+	if(bookForm.num1.value=="" || bookForm.num2.value=="" || bookForm.num3.value== ""){
+		alert("도서번호를 입력해주세요.");	
+	}
+	else if(bookForm.title.value == ""){
+		alert("도서제목을 입력해주세요.");
+	}
+	else if(bookForm.book_cate.value == "NONE"){
+		alert("도서종류를 선택해주세요.");		
+	}
+	else if(bookForm.author.value == ""){
+		alert("저자를 입력해주세요.");
+	}
+	else{
+		bookForm.submit();
+	}
+	
+}
+
+
+</script>
+
+
+<style type="text/css">
+table{
+	border : 1px solid #BDBDBD;
+}
+td{
+	border : 1px solid #BDBDBD;
+	height : 30px;
+}
+#container{
+	margin : auto;
+	width : 600px;
+	height : 540px;
+	border : 1px solid black;
+
+}
+
+textarea{
+	width : 500px;
+	height : 100px;
+}
+
+#btnArea{
+	text-align : center;
+}
+
+.bookBtn{
+	width : 100px;
+}
+</style>
+
+
+</head>
+<body>
+
+
+	<div id="container">
+		<div id="title">
+			<h2>도서 등록 화면 </h2>
+		</div>
+	
+		<form action="bookInfo.do" method="post" name="bookForm">
+		<div id="contents">
+			<table>
+				<tr>
+					<td style="width : 100px;"><label style="color : red;">&nbsp;*</label> 도서번호</td>
+					<td colspan="5"><input type="text" name="num1">-<input type="text" name="num2">-<input type="text" name="num3"></td>
+				
+				</tr>
+			
+				<tr>
+					<td><label style="color : red;">&nbsp;*</label> 도서제목</td>
+					<td colspan="4"><input type="text" style="width : 500px;" name="title"></td>
+				</tr>
+				
+				<tr>
+					<td><label style="color : red;">&nbsp;*</label> 도서종류</td>
+					<td>
+						<select name="book_cate">
+						  <option value="NONE">해당 항목을 선택하세요</option>
+						  <option value="프로그래밍">프로그래밍</option>
+						  <option value="소설">소설</option>
+						  <option value="잡지">잡지</option>
+						</select>
+					</td>
+				</tr>
+				
+				
+				<tr>
+					<td><label>&nbsp;*</label> 출판국가</td>
+					<td>
+					<input type="radio" name="chk_info" value="국내도서">국내도서
+					<input type="radio" name="chk_info" value="외국도서">외국도서
+					</td>
+				</tr>
+				
+				<tr>
+					<td><label>&nbsp;*</label> 출판일</td>
+					<td colspan="4" ><input type="text" style="width : 200px;" name="date"></td>
+				</tr>
+				
+				<tr>
+					<td><label>&nbsp;*</label> 출판사</td>
+					<td>
+						<select name="publisher">
+						  <option value="싸피">싸피출판사</option>
+						  <option value="한빛">한빛출판사</option>
+						  <option value="사이버">사이버출판사</option>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td><label style="color : red;">&nbsp;*</label> 저&nbsp;&nbsp;&nbsp;자</td>
+					<td colspan="4" ><input type="text" style="width : 150px;" name="author"></td>
+				</tr>
+				
+				<tr>
+					<td><label>&nbsp;*</label> 도서가격</td>
+					<td colspan="4" ><input type="text" style="width : 150px;" name="price"></td>
+				</tr>
+				
+				<tr>
+					<td><label>&nbsp;*</label> 요약내용</td>
+					<td colspan="4" ><textarea name="contents"></textarea></td>
+				</tr>
+			</table>
+			<div id="btnArea">	
+			<input class="bookBtn" type="button" value="도서등록" onclick="check_book()">&nbsp;&nbsp;<input class="bookBtn" type="reset" value="취 소">
+			</div>
+		</div>
+		</form>
+	</div>
+
+
+
+</body>
+</html>
