@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 등록</title>
+<style type="text/css">
+body {
+	width: 250px;
+	margin: 0 auto;
+}
+</style>
+<script type="text/javascript">
+	function check() {
+		var id = pid.value;
+		if (id.length < 3) {
+			alert("ID가 너무 짧습니다");
+			pid.focus();
+			return;
+		}
+		rform.submit();
+	}
+</script>
+</head>
+<body>
+	<h1 align="center">회원 등록</h1>
+	<form action="main.do" method="get" id="rform">
+		<input type="hidden" name="action" value="registermem">
+		<table border="1">
+			<tr>
+				<td>ID :</td>
+				<td><input type="text" name="pid" id="pid"></td>
+			</tr>
+			<tr>
+				<td>PW :</td>
+				<td><input type="password" name="ppw"></td>
+			</tr>
+			<tr>
+				<td>이름 :</td>
+				<td><input type="text" name="pname"></td>
+			</tr>
+			<tr>
+				<td>전화번호 :</td>
+				<td><input type="tel" name="ptel"></td>
+			</tr>
+			<tr>
+				<td>성별 :</td>
+				<td><label for="man">남</label><input type="radio" id="man"
+					name="pgender" value="남"><label for="woman">여</label><input
+					type="radio" name="pgender" value="여" id="woman"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" value="등록"
+					onclick="check()"><input type="reset" value="취소"></td>
+			</tr>
+		</table>
+	</form>
+	<a href="index.html">초기화면</a>
+</body>
+</html>
