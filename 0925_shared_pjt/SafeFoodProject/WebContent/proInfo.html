@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeFood | 상품 정보 목록</title>
+
+<script
+	src="https://ajax.googleapis.com/aj	ax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="js/bootstrap.js">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+
+
+function goInfo(){
+	location.href = "proInfo.html";
+}
+
+	$(function() {
+		send();
+	});
+	function send() {
+		$.ajax({
+			type : "get",
+			url : "foodInfo.xml",
+			success : resXml,
+			error : function() {
+				alert("Error loading xml");
+			},
+
+		});
+	}
+	function getFood(code) {
+		location.href = "charts.html?code=" + code;
+		/*document.getElementById("code").value = code;
+		var frm = document.getElementById("frm");
+		frm.action = "charts.html";
+		frm.submit();*/
+	}
+
+	function eXml(s) {
+		console.log(s);
+	}
+	function resXml(data) {
+		//$(data).find('friend')
+		$(data)
+				.find('food')
+				.each(
+						function() {
+							var code = $("code", this).text();
+							var name = $("name", this).text();
+							var maker = $("maker", this).text();
+							var material = $("material", this).text();
+							var image = $("image", this).text();
+							$(".main")
+									.append(
+											'<div class="col-lg-6">'
+													+ '<div class="col-md-6 col-lg-4 col-xl-3">'
+													+ '<img src="'+image+'" class="img-responsive" class="img-rounded" alt="">'
+													+ '</div>'
+													+ '<div class="col-md-6 col-lg-8 col-xl-9">'
+													+ '<h3><a onclick="getFood('
+													+ code
+													+ ')">'
+													+ name
+													+ '</a></h3>'
+													+ '<p style="width: 300px; height:100px;overflow: hidden;">'
+													+ material + '</p>'
+													+'<p><button class="btn-info">추가</button><button class="btn-success" style="margin-left:5px;">찜</button></p>'
+													+ '</div></div>');
+
+						})
+
+	}
+</script>
+
+<style type="text/css">
+
+</style>
+</head>
+
+
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<ul class="nav navbar-nav navbar-right">
+
+		</ul>
+		<!-- Single button -->
+		<ul class="nav navbar-nav navbar-right">
+
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown" role="button" aria-expanded="false">Login<span
+					class="caret"></span>
+			</a>
+				<ul class="dropdown-menu" role="menu">
+					<li>
+						<div class="row">
+							<div class="col-md-12">
+								<form class="form" role="form" method="post" action="login"
+									accept-charset="UTF-8" id="login-nav">
+									<div class="form-group">
+										아 이 디 <label class="sr-only" for="exampleInputEmail2">Email
+											address</label> <input type="email" class="form-control"
+											id="exampleInputEmail2" placeholder="Email address" required>
+									</div>
+									<div class="form-group">
+										비 밀 번 호 <label class="sr-only" for="exampleInputPassword2">Password</label>
+										<input type="password" class="form-control"
+											id="exampleInputPassword2" placeholder="Password" required>
+										<div class="help-block text-right">
+											<a href="">비밀번호 찾기</a>
+										</div>
+									</div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary btn-block">로그인</button>
+									</div>
+									<div class="checkbox">
+										<label> <input type="checkbox"> keep me
+											logged-in
+										</label>
+									</div>
+								</form>
+							</div>
+							<div class="bottom text-center">
+								<a href="join.html"><b>Join Us</b></a>
+							</div>
+						</div>
+					</li>
+
+
+
+
+				</ul></li>
+		</ul>
+
+
+	</nav>
+
+
+
+	<nav class="navbar navbar-default navbar" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+
+				<a href="index.html">
+				<img src="image/header-logo.jpg"></a>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+				</button>
+				<a class="navbar-brand" href="#"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#">공지사항</a></li>
+					<li><a href="#">상품 정보</a></li>
+					<li><a href="#">베스트 섭취 정보</a></li>
+					<li><a href="#">내 섭취 정보</a></li>
+					<li><a href="#">예상 섭취 정보</a></li>
+				</ul>
+				<form class="navbar-form navbar-right" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</form>
+			</div>
+
+
+		</div>
+		<!-- /.navbar-collapse -->
+		<!-- /.container-fluid -->
+	</nav>
+	<div class="jumbotron">
+		<h1>WHAT WE PROVIDE</h1>
+		<hr>
+		건강한 삶을 위한 먹거리 프로젝트
+	</div>
+
+	<!-- 상품  -->
+		<div class="container">
+	<div class="main col-md-12"></div>
+</div>
+
+	<footer class="footer">
+		<div class="container"></div>
+	</footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeFood | 상품 정보 목록</title>
+
+<script
+	src="https://ajax.googleapis.com/aj	ax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="js/bootstrap.js">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+	function goInfo() {
+		location.href = "proInfo.html";
+	}
+	$(function() {
+		send();
+	});
+	function send() {
+		$.ajax({
+			type : "get",
+			url : "foodInfo.xml",
+			success : resXml,
+			error : function() {
+				alert("Error loading xml");
+			},
+
+		});
+	}
+
+	function getFood(code) {
+		location.href = "charts.html?code=" + code;
+
+		/*document.getElementById("code").value = code;
+		var frm = document.getElementById("frm");
+		frm.action = "charts.html";
+		frm.submit();*/
+	}
+
+	function eXml(s) {
+		console.log(s);
+	}
+	function resXml(data) {
+		//$(data).find('friend')
+		$(data).find('food').each(
+				function() {
+					var code = $("code", this).text();
+					var name = $("name", this).text();
+					var maker = $("maker", this).text();
+					var material = $("material", this).text();
+					var image = $("image", this).text();
+					$(".main").append(
+							'<div class="hovereffect col-xs-6 col-lg-3">'
+									+ '<img src="' + image
+									+ '" onclick="getFood(' + code
+									+ ')" class="img-responsive"  alt="">'
+									+ '<div class="overlay">' + '<h2>' + name
+									+ '</h2>'
+									+ '<button class= "info btn-light"'
+									+ 'onclick ="getFood(' + code + ')"'
+									+ '>상품정보보기'
+
+									+ '</button>'
+
+									+ '</div>' + '</div>');
+
+				})
+
+	}
+</script>
+
+<style type="text/css">
+</style>
+
+</head>
+
+
+
+<body>
+	<iframe src="mainMenu.html" width="100%" height="369px" scrolling="no"></iframe>
+
+
+	<!-- 상품  -->
+	<div class="container">
+		<div class="main col-md-12"></div>
+	</div>
+	<footer class="footer">
+		<div class="container"></div>
+	</footer>
+
+
+
+</body>
+</html>

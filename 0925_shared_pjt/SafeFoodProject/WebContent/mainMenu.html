@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SafeFood | 상품 정보 목록</title>
+
+<script
+	src="https://ajax.googleapis.com/aj	ax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="js/bootstrap.js">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+	function goInfo() {
+		//window.opener.location.href = “/admin/login.jsp” ;
+	parent.location.href = "proInfo.html";	
+		//location.href = "proInfo.html";
+	}
+	function goMain() {
+		//window.opener.location.href = “/admin/login.jsp” ;
+	parent.location.href = "index.html";	
+		//location.href = "proInfo.html";
+	}
+	function goJoin() {
+		//window.opener.location.href = “/admin/login.jsp” ;
+	parent.location.href = "join.html";	
+		//location.href = "proInfo.html";
+	}
+	function gofindPW(){
+	parent.location.href = "findPW.jsp";
+	}
+</script>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<ul class="nav navbar-nav navbar-right">
+
+		</ul>
+		<!-- Single button -->
+		<ul class="nav navbar-nav navbar-right">
+
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown" role="button" aria-expanded="false">Login<span
+					class="caret"></span>
+			</a>
+				<ul class="dropdown-menu" role="menu">
+					<li>
+						<div class="row">
+							<div class="col-md-12">
+								<form class="form" role="form" method="post" action="main.do?action=login_mem"
+									accept-charset="UTF-8" id="login-nav">
+									<div class="form-group">
+										<label style="color:#848484;">아 이 디</label><input type="text" class="form-control"
+											id="login_id" placeholder="I D" required name="login_id">
+									</div>
+									<div class="form-group">
+										<label style="color:#848484;">비 밀 번 호</label>
+										<input type="password" class="form-control"
+											id="login_pw" placeholder="Password" required name="login_pw">
+										<div class="help-block text-right">
+											<a onClick="gofindPW()">비밀번호 찾기</a>
+										</div>
+									</div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary btn-block">로그인</button>
+									</div>
+								</form>
+							</div>
+							<div class="bottom text-center">
+								<a onClick="goJoin()"><b>회 원 가 입</b></a>
+							</div>
+						</div>
+					</li>
+
+
+
+
+				</ul></li>
+		</ul>
+
+
+	</nav>
+
+
+
+	<nav class="navbar navbar-default navbar" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+
+				<a onclick="go_Main()"> <img src="image/header-logo.jpg"></a>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+				</button>
+				<a class="navbar-brand" href="#"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#">공지사항</a></li>
+					<li><a onclick="goInfo()">상품 정보</a></li>
+					<li><a href="#">베스트 섭취 정보</a></li>
+					<li><a href="#">내 섭취 정보</a></li>
+					<li><a href="#">예상 섭취 정보</a></li>
+				</ul>
+				<form class="navbar-form navbar-right" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</form>
+			</div>
+
+
+		</div>
+		<!-- /.navbar-collapse -->
+		<!-- /.container-fluid -->
+	</nav>
+	<div class="jumbotron">
+		<h1>WHAT WE PROVIDE</h1>
+		<hr>
+		건강한 삶을 위한 먹거리 프로젝트
+	</div>
+
+</body>
+</html>
