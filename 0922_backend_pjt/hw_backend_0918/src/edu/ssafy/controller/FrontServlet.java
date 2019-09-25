@@ -61,7 +61,7 @@ public class FrontServlet extends HttpServlet {
 			loginMem(request, response);
 		} else if(action.equals("logoutmem")) {
 			logoutMem(request, response);
-		}
+		} 
 
 	}
 
@@ -73,6 +73,8 @@ public class FrontServlet extends HttpServlet {
 		request.getSession().invalidate();
 		System.out.println("세션종료 후 로그인화면으로");
 
+		
+		
 		out.println("<script>alert('로그아웃 되었습니다!'); location.href='login.jsp';</script>");
 		out.flush();
 	}

@@ -45,6 +45,23 @@ public class ProductServlet extends HttpServlet {
 		else if(action.equals("product_delete")) {
 			deleteProduct(request,response);
 		}
+		else if(action.equals("product_ajax")) {
+			displayInfo(request,response);
+		}
+		
+	}
+
+
+	private void displayInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("pid");
+		ProductVo plist = pman.productInfo(id);
+
+		if (plist != null) {
+			request.setAttribute("plist", plist);
+			request.getRequestDispatcher("ajax.jsp").forward(request, response);
+		} else {
+			
+		}
 		
 	}
 

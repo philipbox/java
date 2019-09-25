@@ -10,7 +10,7 @@ public class ConnectionProxy {
 		Connection conn = null;
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/memberweb?useSSL=false&serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8",
-					"root", "root");
+					"ssafy", "ssafy");
 		return conn;
 	}
 }
