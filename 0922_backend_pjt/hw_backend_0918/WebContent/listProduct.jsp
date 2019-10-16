@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="java.util.ArrayList, java.util.Arrays,
-    edu.ssafy.model.ProductVo"
+    import="java.util.ArrayList, java.util.Arrays,edu.ssafy.model.Product"
     %>
 <!DOCTYPE html>
 <html>
@@ -63,7 +62,7 @@ $(function() {
 
 <%
 	String getloginid = (String) session.getAttribute("loginid");
-	ArrayList<ProductVo> list = (ArrayList<ProductVo>) request.getAttribute("plist");
+	ArrayList<Product> list = (ArrayList<Product>) request.getAttribute("plist");
 %>
 	<jsp:include page="/menu/productbar.jsp"></jsp:include>
 	<h1 align="center">상품 목록</h1>

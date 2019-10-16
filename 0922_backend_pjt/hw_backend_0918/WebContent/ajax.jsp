@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-     import="edu.ssafy.model.ProductVo"
+     import="edu.ssafy.model.Product"
     %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% ProductVo product = (ProductVo) request.getAttribute("plist"); %>
+	<%
+		Product product = (Product) request.getAttribute("plist");
+	%>
 	<h1 align="center">상품 정보</h1>
 	<table border="1">
 		<tr><th style="width:80px;">ID </th><td><input type="text" name="pid" id="pid" readonly value=<%=product.getId()%>></td></tr>

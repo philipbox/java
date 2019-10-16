@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-	import="edu.ssafy.model.ProductVo"
+	import="edu.ssafy.model.Product"
     %>
 <!DOCTYPE html>
 <html>
@@ -40,7 +40,9 @@ function deleteProduct(){
 <%
 	String getloginid = (String) session.getAttribute("loginid");
 %>
-	<% ProductVo product = (ProductVo) request.getAttribute("plist"); %>
+	<%
+		Product product = (Product) request.getAttribute("plist");
+	%>
 	<jsp:include page="/menu/productbar2.jsp"></jsp:include>
 	<h1 align="center">상품 정보</h1>
 	<h5 style="text-align: center;">로그인 ID :<label style="color:blue;"> <%=getloginid%></label></h5>
