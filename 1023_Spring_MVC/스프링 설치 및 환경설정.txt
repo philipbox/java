@@ -1,0 +1,35 @@
+[[ spring 다운로드 ]]
+1) https://spring.io/tools3/sts/legacy  접속
+	
+2) 3.9.7 의 윈도우 버전 다운로드.
+ 검색>> STS 3.9.7.RELEASE 
+
+3) 다운받은 zip File 압축 풀기
+ssafy2(원하는 폴더)에 [[ sts-3.9.7.RELEASE ]] 폴더 복사하기 
++ work_spring폴더(워크스페이스로 사용할 폴더) 생성
+
+4) spring 실행
+
+------------------------------------------------
+1) 인코딩 환경 설정
+
+2) windows - Show View - Others(maven repsitories) 추가
+
+3) maven repsitories에 보면 Global Repositories의 central (https://repo.maven.apache.org/maven2) 을 우클릭해서 requild Index를 꼭 해주기
+ - 시간이 굉장히 오래걸림 / 네트워크가 불안정한 환경에서는 문제가 생길 수 있음.
+
+
+---------
+프로젝트 생성 
+
+- Spring Lagacy Proejct -> Simple Spring Maven
+
+- pom.xml -> Dependencies -> Add -> mysql-connector-java 검색하면 아래에 리스트 뜸.
+mysql 의 8.0.15 추가.
+
+--------------------
+
+preferences - Java - Editor - Content Assist - Advanced 에서 
+오른쪽 아래에 
+	Java Proposals (Task-Focused) 위에서 체크하고, 가장위로 
+''를 up 버튼을 눌러 가장 위로 올림.
