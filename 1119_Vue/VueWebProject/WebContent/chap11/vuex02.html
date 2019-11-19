@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vuex</title>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vuex"></script>
+</head>
+<body>
+<div id="app">
+	<p>{{ cnt }}</p>
+	<p>
+		<button @click="increase">+</button>
+		<button @click="decrease">-</button>
+	</p>
+</div>
+<script type="text/javascript"> 
+
+const INCREMENT = 'increment' 
+const DECREMENT = 'decrement' 
+const store = new Vuex.Store({ 
+  state: {cnt: 0}, 
+  mutations: { 
+   [INCREMENT]: state => state.cnt++, 
+   [DECREMENT]: state => state.cnt-- 
+  },
+  actions:{
+	  [INCREMENT] () { 
+	      store.commit(INCREMENT) 
+	  }, 
+	  [DECREMENT] () { 
+	      store.commit(DECREMENT)     
+	  }
+  }
+}); 
+new Vue({ 
+  el: '#app', 
+  computed: {cnt () {return store.state.cnt} }, 
+  methods: { 
+	increase () { 
+      store.dispatch(INCREMENT) 
+    }, 
+    decrease () { 
+      store.dispatch(DECREMENT)     
+      } 
+  }}); 
+ 
+</script>
+</body>
+</html>
